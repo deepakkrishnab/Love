@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9adfff"/>
+      <stop offset="55%" stop-color="#d9f3ff"/>
+      <stop offset="100%" stop-color="#eafff0"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fd97f"/>
+      <stop offset="45%" stop-color="#5cb85c"/>
+      <stop offset="100%" stop-color="#2e7d32"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff6c8"/>
+      <stop offset="100%" stop-color="#ffe066"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#sky)"/>
+
+  <circle cx="1360" cy="150" r="90" fill="url(#sun)"/>
+
+  <g fill="#ffffff" opacity="0.85">
+    <ellipse cx="220" cy="140" rx="90" ry="34"/>
+    <ellipse cx="290" cy="120" rx="70" ry="28"/>
+    <ellipse cx="160" cy="120" rx="60" ry="24"/>
+
+    <ellipse cx="780" cy="100" rx="80" ry="30"/>
+    <ellipse cx="840" cy="85" rx="60" ry="24"/>
+
+    <ellipse cx="1080" cy="220" rx="70" ry="26"/>
+    <ellipse cx="1140" cy="205" rx="55" ry="22"/>
+  </g>
+
+  <g opacity="0.55" fill="#bfe8c8">
+    <ellipse cx="200" cy="560" rx="420" ry="140"/>
+    <ellipse cx="900" cy="590" rx="500" ry="150"/>
+    <ellipse cx="1400" cy="570" rx="380" ry="130"/>
+  </g>
+
+  <rect x="0" y="560" width="1600" height="340" fill="url(#grass)"/>
+
+  <g opacity="0.9">
+    <circle cx="90" cy="600" r="70" fill="#388e3c"/>
+    <circle cx="150" cy="615" r="55" fill="#2e7d32"/>
+    <circle cx="430" cy="605" r="60" fill="#388e3c"/>
+    <circle cx="1480" cy="600" r="75" fill="#2e7d32"/>
+    <circle cx="1540" cy="615" r="50" fill="#388e3c"/>
+    <circle cx="1180" cy="600" r="58" fill="#2e7d32"/>
+  </g>
+
+  <g>
+    <!-- simple flowers scattered across the grass -->
+    <g transform="translate(260,660)">
+      <circle r="10" fill="#ff6fb5"/>
+      <circle cx="14" r="10" fill="#ffd166"/>
+      <circle cx="-14" r="10" fill="#6fc3ff"/>
+      <circle cy="-6" r="6" fill="#fff6c8"/>
+    </g>
+    <g transform="translate(540,700)">
+      <circle r="9" fill="#a66bff"/>
+      <circle cx="12" r="9" fill="#ff7a66"/>
+      <circle cx="-12" r="9" fill="#ffd166"/>
+      <circle cy="-5" r="5" fill="#fff6c8"/>
+    </g>
+    <g transform="translate(900,680)">
+      <circle r="10" fill="#ff6fb5"/>
+      <circle cx="13" r="10" fill="#4ad7d1"/>
+      <circle cx="-13" r="10" fill="#ffd166"/>
+      <circle cy="-6" r="6" fill="#fff6c8"/>
+    </g>
+    <g transform="translate(1180,720)">
+      <circle r="9" fill="#ffd166"/>
+      <circle cx="12" r="9" fill="#ff6fb5"/>
+      <circle cx="-12" r="9" fill="#a66bff"/>
+      <circle cy="-5" r="5" fill="#fff6c8"/>
+    </g>
+    <g transform="translate(1400,660)">
+      <circle r="10" fill="#6fc3ff"/>
+      <circle cx="14" r="10" fill="#ff7a66"/>
+      <circle cx="-14" r="10" fill="#ff6fb5"/>
+      <circle cy="-6" r="6" fill="#fff6c8"/>
+    </g>
+    <g transform="translate(60,760)">
+      <circle r="9" fill="#ffd166"/>
+      <circle cx="12" r="9" fill="#4ad7d1"/>
+      <circle cx="-12" r="9" fill="#ff6fb5"/>
+      <circle cy="-5" r="5" fill="#fff6c8"/>
+    </g>
+  </g>
+
+  <g stroke="#2e7d32" stroke-width="4" opacity="0.6">
+    <path d="M300 900 C 320 820, 340 800, 320 740" fill="none"/>
+    <path d="M700 900 C 720 830, 690 810, 710 760" fill="none"/>
+    <path d="M1100 900 C 1120 830, 1090 800, 1110 750" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Memory Lane 🌸</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="home-icon-btn" href="index.html" aria-label="Home">🏡</a>
+  <span class="floaty" style="top:8%; left:5%;">🌺</span>
+  <span class="floaty" style="top:12%; left:88%; animation-delay: 1s;">🦋</span>
+  <span class="floaty" style="top:22%; left:20%; animation-delay: 1.8s;">🦋</span>
+  <span class="floaty" style="top:28%; left:70%; animation-delay: 0.6s;">🌼</span>
+  <span class="floaty" style="top:45%; left:8%; animation-delay: 2.2s;">🌷</span>
+  <span class="floaty" style="top:48%; left:92%; animation-delay: 1.4s;">🦋</span>
+  <span class="floaty" style="top:60%; left:30%; animation-delay: 0.9s;">🌻</span>
+  <span class="floaty" style="top:65%; left:76%; animation-delay: 2.6s;">🍀</span>
+  <span class="floaty" style="top:78%; left:10%; animation-delay: 2s;">🌿</span>
+  <span class="floaty" style="top:80%; left:84%; animation-delay: 1.3s;">🌷</span>
+  <span class="floaty" style="top:90%; left:50%; animation-delay: 0.3s;">🦋</span>
+
+  <h1 class="wonder-title">Our Memory Lane 🌸</h1>
+  <p class="wonder-subtitle">Our story, one milestone at a time.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <p>🖼️ Long before we ever spoke, I saw her in a photo. That was my very first impression
+          of her, and somehow, I still remember it clearly.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <p>🕵️‍♀️ She found and followed me on Instagram and LinkedIn long before I noticed her.
+          She won that little game first. When I quietly tried to do the same to her, I got caught
+          and lost. 😄</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <span class="timeline-date">🗓️ 5th July</span>
+        <p>🌅 We met for the first time, in a temple. The morning sun was shining
+          right on my face, painting it orange. That was the moment she saw me for the very first
+          time, and she had come wearing a beautiful orange saree that day. It felt like the sun
+          had planned it.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <span class="timeline-date">🗓️ 20th July</span>
+        <p>💬 We spoke to each other for the first time. It was simple and
+          respectful, two people getting to know each other, not knowing where it would lead.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <p>🌼 As days went by, that respect slowly turned into comfort, and comfort turned into
+          closeness. We started growing closer with every single conversation.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <button type="button" class="secret-trigger" id="secret-trigger">Top Secret</button>
+        <div class="secret-form" id="secret-form">
+          <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" id="secret-password" class="secret-input" placeholder="4-digit code" />
+          <button type="button" class="btn btn-next" id="secret-submit" style="padding:10px 20px; font-size:1rem;">Unlock</button>
+          <p class="secret-error" id="secret-error" style="display:none;">Wrong password, try again.</p>
+        </div>
+        <div class="secret-content" id="secret-content">
+          <span class="timeline-date">🗓️ 6th September</span>
+          <p>🕵️ Our secret meet of Bangalore... 💕</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <span class="timeline-date">🗓️ 14th October</span>
+        <p>🎂 Today, I am coming to see her on her birthday.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <span class="timeline-date">🗓️ 1st November</span>
+        <p>💍 We have our engagement, the day we promise this story continues.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <span class="timeline-date">🗓️ 20th January</span>
+        <p>👰 Our marriage will happen, where this story truly begins.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wonder-card">
+    <div class="button-row">
+      <a class="btn btn-next" href="birthday.html">Continue</a>
+    </div>
+  </div>
+
+  <footer class="wonder-footer">made with 💖 just for Nivi</footer>
+
+  <script src="js/transitions.js"></script>
+  <script>
+    const secretTrigger = document.getElementById('secret-trigger');
+    const secretForm = document.getElementById('secret-form');
+    const secretContent = document.getElementById('secret-content');
+    const secretPassword = document.getElementById('secret-password');
+    const secretSubmit = document.getElementById('secret-submit');
+    const secretError = document.getElementById('secret-error');
+    const SECRET_PASSWORD = '0507';
+
+    secretTrigger.addEventListener('click', () => {
+      secretForm.style.display = 'flex';
+      secretTrigger.style.display = 'none';
+      secretPassword.focus();
+    });
+
+    function tryUnlock() {
+      if (secretPassword.value.trim() === SECRET_PASSWORD) {
+        secretForm.style.display = 'none';
+        secretContent.classList.add('revealed');
+      } else {
+        secretError.style.display = 'block';
+        secretPassword.value = '';
+        secretPassword.focus();
+      }
+    }
+
+    secretSubmit.addEventListener('click', tryUnlock);
+    secretPassword.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Enter') {
+        evt.preventDefault();
+        tryUnlock();
+      }
+    });
+  </script>
+</body>
+</html>

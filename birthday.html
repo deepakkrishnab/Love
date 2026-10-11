@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Nivi! 🎂</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="home-icon-btn" href="index.html" aria-label="Home">🏡</a>
+  <div class="balloons" id="balloons"></div>
+  <span class="floaty" style="top:10%; left:8%;">🌺</span>
+  <span class="floaty" style="top:14%; left:86%; animation-delay: 1s;">🦋</span>
+  <span class="floaty" style="top:22%; left:40%; animation-delay: 1.7s;">🦋</span>
+  <span class="floaty" style="top:32%; left:65%; animation-delay: 0.5s;">🌼</span>
+  <span class="floaty" style="top:50%; left:8%; animation-delay: 2.4s;">🌷</span>
+  <span class="floaty" style="top:58%; left:90%; animation-delay: 1.3s;">🦋</span>
+  <span class="floaty" style="top:80%; left:10%; animation-delay: 2s;">🌿</span>
+  <span class="floaty" style="top:88%; left:80%; animation-delay: 0.9s;">🌻</span>
+
+  <h1 class="wonder-title">Happy Birthday, <span class="name-loop" id="name-loop">Nivedha</span>! 🎂🎉</h1>
+  <p class="wonder-subtitle">Wishing you a very happy and healthy year ahead 💐</p>
+
+  <div class="cake">
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+    <div class="layer layer-top"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-bottom"></div>
+  </div>
+
+  <div class="wonder-card">
+    <p>🎈 Wishing you a year filled with love, laughter, good health, and every little dream
+      coming true. May this new year of your life be your best one yet.</p>
+  </div>
+
+  <div class="wonder-card">
+    <p>💫 This will be your last birthday as a single girl. From your next birthday onwards, I'll
+      be right there with you, not just on birthdays, but in every happy moment, and even through
+      the sad ones.</p>
+    <div class="button-row">
+      <a class="btn btn-next" href="proposal.html">One more thing...</a>
+    </div>
+  </div>
+
+  <footer class="wonder-footer">made with 💖 just for Nivi</footer>
+
+  <script src="js/confetti.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/nameloop.js"></script>
+  <script>
+    WonderNameLoop.startNameLoop('name-loop', ['Nivedha', 'Nivi'], 2200);
+    WonderConfetti.burstConfetti({ count: 90 });
+    setInterval(() => WonderConfetti.burstConfetti({ count: 20 }), 3000);
+
+    const balloonField = document.getElementById('balloons');
+    const emojis = ['🎈', '🎈', '🎈', '🌸'];
+    for (let i = 0; i < 14; i++) {
+      const b = document.createElement('span');
+      b.className = 'balloon';
+      b.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.animationDelay = (Math.random() * 9) + 's';
+      b.style.animationDuration = (7 + Math.random() * 5) + 's';
+      balloonField.appendChild(b);
+    }
+  </script>
+</body>
+</html>
