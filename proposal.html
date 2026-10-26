@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <footer class="wonder-footer">made with 💖 just for Nivi</footer>
+  <footer class="wonder-footer" id="secret-trigger">made with 💖 just for Nivi</footer>
 
   <div class="reveal-overlay" id="reveal">
     <div class="nickname-wall" aria-hidden="true">
@@ -61,12 +61,19 @@
     </div>
   </div>
 
+  <div class="secret-popup-overlay" id="secret-popup">
+    <div class="secret-popup-box">
+      <p class="secret-popup-text">Va Namba rendu perum senthu pollam</p>
+      <button class="btn btn-yes secret-popup-ok" id="secret-popup-ok">Okay</button>
+    </div>
+  </div>
+
   <script src="js/dodge.js"></script>
   <script src="js/confetti.js"></script>
   <script src="js/transitions.js"></script>
   <script>
     const noBtn = document.getElementById('no-btn');
-    WonderDodge.makeUndodgeable(noBtn);
+    const noBtnDodge = WonderDodge.makeUndodgeable(noBtn);
 
     const yesBtn = document.getElementById('yes-btn');
     const reveal = document.getElementById('reveal');
@@ -75,6 +82,47 @@
       reveal.classList.add('show');
       WonderConfetti.burstConfetti({ count: 120 });
       setInterval(() => WonderConfetti.burstConfetti({ count: 30 }), 1200);
+    });
+
+    // Secret developer-only trigger: nothing on screen can click the
+    // "Na Dubai poran" button (it dodges every pointer). Long-pressing
+    // (hold ~3s, no release) the footer credit line just freezes the
+    // button wherever it currently is, it does NOT show anything by
+    // itself. Only clicking the now-frozen button reveals the popup.
+    const secretPopup = document.getElementById('secret-popup');
+    const secretPopupOk = document.getElementById('secret-popup-ok');
+    const secretTrigger = document.getElementById('secret-trigger');
+    const HOLD_DURATION_MS = 3000;
+    let holdTimer = null;
+
+    noBtn.addEventListener('click', () => {
+      secretPopup.classList.add('show');
+    });
+
+    function cancelHold() {
+      if (holdTimer) {
+        clearTimeout(holdTimer);
+        holdTimer = null;
+      }
+    }
+
+    function startHold(evt) {
+      evt.preventDefault();
+      cancelHold();
+      holdTimer = setTimeout(() => {
+        noBtnDodge.freeze();
+        holdTimer = null;
+      }, HOLD_DURATION_MS);
+    }
+
+    secretTrigger.addEventListener('pointerdown', startHold);
+    secretTrigger.addEventListener('pointerup', cancelHold);
+    secretTrigger.addEventListener('pointerleave', cancelHold);
+    secretTrigger.addEventListener('pointercancel', cancelHold);
+    secretTrigger.addEventListener('contextmenu', (evt) => evt.preventDefault());
+
+    secretPopupOk.addEventListener('click', () => {
+      secretPopup.classList.remove('show');
     });
   </script>
 </body>

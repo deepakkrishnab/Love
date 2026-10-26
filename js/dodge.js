@@ -36,6 +36,7 @@
     buttonEl.style.transition = 'left 0.18s ease, top 0.18s ease, transform 0.18s ease';
 
     let placed = true;
+    let frozen = false;
 
     function place(x, y) {
       buttonEl.style.left = x + 'px';
@@ -45,13 +46,14 @@
     }
 
     function teleport() {
+      if (frozen) return;
       const rect = buttonEl.getBoundingClientRect();
       const { x, y } = randomPositionWithinViewport(rect.width || 140, rect.height || 54, margin);
       place(x, y);
     }
 
     function onPointerMove(evt) {
-      if (!placed) return;
+      if (!placed || frozen) return;
       const rect = buttonEl.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
@@ -66,6 +68,7 @@
     // Touch devices: jump away the instant a touch starts anywhere near it,
     // and also on any touch on the button itself.
     function onTouchStart(evt) {
+      if (frozen) return;
       const touch = evt.touches && evt.touches[0];
       if (!touch) {
         teleport();
@@ -89,6 +92,15 @@
 
     // Keep it in-bounds on resize
     window.addEventListener('resize', teleport);
+
+    return {
+      freeze() {
+        frozen = true;
+      },
+      unfreeze() {
+        frozen = false;
+      }
+    };
   }
 
   global.WonderDodge = { makeUndodgeable };

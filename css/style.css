@@ -512,6 +512,45 @@ h1, h2, h3 {
   text-shadow: 0 3px 0 rgba(0,0,0,0.25);
 }
 
+/* Secret popup (proposal page, dev-only trigger) */
+.secret-popup-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(58, 43, 86, 0.85);
+  z-index: 950;
+  padding: 24px;
+}
+
+.secret-popup-overlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.secret-popup-box {
+  background: var(--cream, #fff8ef);
+  border-radius: 18px;
+  padding: 28px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.secret-popup-text {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3a2b56;
+  margin: 0 0 18px;
+}
+
+.secret-popup-ok {
+  min-width: 120px;
+}
+
 /* Decorative nickname watermark scattered across the reveal screen */
 .nickname-wall {
   position: absolute;
@@ -548,6 +587,9 @@ footer.wonder-footer {
   opacity: 0.95;
   position: relative;
   z-index: 1;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* Birthday cake (pure CSS) */
